@@ -1,3 +1,63 @@
+# Idea
+
+See https://github.com/microsoft/vscode/issues/166631
+<details>
+  <summary>keybindings.json</summary>
+
+```jsonc
+// # keybindings.json
+[
+    {
+        "key": "ctrl+i",
+        "command": "toggle"
+        "when": "editorTextFocus"
+        "args": {
+                "id": "Zen", // id must be unique
+                "values": [
+                        // Must have 2 settings objects with the same schema
+                        {
+                                "workbench.statusBar.visible": true,
+                                "workbench.activityBar.visible": true,
+                                "workbench.editor.showTabs": false,
+                                "editor.minimap.enabled": true,
+                        },
+                        {
+                                "workbench.statusBar.visible": false,
+                                "workbench.activityBar.visible": false,
+                                "workbench.editor.showTabs": true,
+                                "editor.minimap.enabled": false,
+                        }
+                ]
+        }, 
+    },
+    {
+        "key": "ctrl+shift+i",
+        "command": "cycle"
+        "when": "editorTextFocus"
+        "args": {
+                "id": "Theme and Font", // id must be unique
+                "values": [
+                        // As many settings objects as desired, with the same schema
+                        {
+                                "workbench.colorTheme": "Default Light+",
+                                "editor.fontFamily": "Consolas, monospace",
+                        },
+                        {
+                                "workbench.colorTheme": "Default Dark+",
+                                "editor.fontFamily": "'Cascadia Code', monospace",
+                        },
+                        {
+                                "workbench.colorTheme": "Default High Contrast",
+                                "editor.fontFamily": "'Fira Code', monospace",
+                        }
+                ]
+        }, 
+    }
+]
+```
+
+</details>
+
 # Toggle VS Code
 Toggle any VS Code setting by your favorite keybindings.
 
